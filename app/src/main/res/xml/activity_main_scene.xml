@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="1000">
+        <OnSwipe
+            motion:touchAnchorId="@+id/lottie"
+            motion:dragDirection="dragUp"
+            />
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+
+        <Constraint
+            android:id="@+id/lottie"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_margin="24dp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/guideline10"
+            motion:lottie_autoPlay="true"
+            motion:lottie_loop="true"
+            motion:lottie_rawRes="@raw/ramadan_mubarak" />
+
+        <Constraint
+            android:id="@+id/tv_swipe_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/ic_arrow_up"
+            android:fontFamily="serif-monospace"
+            android:text="Swipe up"
+            android:textSize="23sp"
+            android:visibility="invisible"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@id/lottie" />
+
+        <Constraint
+            android:id="@+id/tv_quran"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/quran"
+            android:visibility="visible"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintTop_toBottomOf="@id/lottie"
+         android:layout_marginTop="@dimen/margin_huge"
+            android:alpha="0.9"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+
+            android:elevation="30dp"
+            />
+
+        <Constraint
+            android:id="@+id/tv_before"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/before"
+            android:textSize="20sp"
+            android:visibility="visible"
+            motion:drawableEndCompat="@drawable/ic_next"
+            motion:layout_constraintTop_toBottomOf="@id/tv_quran"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toEndOf="@+id/tv_next"
+            motion:layout_constraintBottom_toBottomOf="parent"
+
+            />
+
+        <Constraint
+            android:id="@+id/tv_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/next"
+            android:textSize="20sp"
+            android:visibility="visible"
+
+            motion:drawableStartCompat="@drawable/ic_before"
+
+            motion:layout_constraintEnd_toStartOf="@+id/tv_before"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="@id/tv_before"
+            motion:layout_constraintBottom_toBottomOf="@id/tv_before"
+            />
+
+    </ConstraintSet>
+</MotionScene>
